@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GOLDEN EYE — Hypergrid Command Center</title>
+<title>MASASHI PROTOCOL — Hypergrid Command Center</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
 :root{
@@ -200,7 +200,7 @@ header{position:absolute;top:0;left:0;right:0;height:92px;z-index:20;display:fle
     <div class="brand">
       <div class="emblem">◉</div>
       <div>
-        <strong>GOLDEN EYE</strong>
+        <strong>MASASHI PROTOCOL</strong>
         <small>HYPERGRID COMMAND NEXUS // CYBERPUNK AUTONOMY LAYER</small>
       </div>
     </div>
@@ -252,7 +252,7 @@ header{position:absolute;top:0;left:0;right:0;height:92px;z-index:20;display:fle
         <div class="ring r3"></div>
         <div class="ring r4"></div>
         <div class="core">
-          <b>GOLDEN EYE</b>
+          <b>MASASHI PROTOCOL</b>
           <small>PRIMARY ORCHESTRATOR</small>
           <div class="heart">● SYSTEM ONLINE</div>
         </div>
@@ -404,7 +404,7 @@ const DATA = [
   ['d4','Ops Resilience',2065,820,'OUTCOME','Tests continuity plans, shipping response effectiveness, and issue containment.','orange'],
   ['d5','Board Reporting',2015,1015,'OUTCOME','Delivers executive narratives, risk posture, and operational confidence signals.','yellow']
 ];
-const CORE = ['core','GOLDEN EYE CORE',1210,702,'ORCHESTRATOR','Allocates work across specialized units, merges business context, prioritizes action, and routes approvals for high-complexity operations.','yellow'];
+const CORE = ['core','MASASHI PROTOCOL CORE',1210,702,'ORCHESTRATOR','Allocates work across specialized units, merges business context, prioritizes action, and routes approvals for high-complexity operations.','yellow'];
 const NODES = [CORE, ...DATA].map(([id,name,x,y,type,description,color])=>({id,name,x,y,type,description,color}));
 const byId = Object.fromEntries(NODES.map(n=>[n.id,n]));
 
@@ -617,7 +617,7 @@ function addBoardItemRandom(){
   renderBoard();
 }
 function addBoardCustom(text){
-  boardItems.unshift({time:nowTime(),who:'GOLDEN EYE',text});
+  boardItems.unshift({time:nowTime(),who:'MASASHI PROTOCOL',text});
   boardItems = boardItems.slice(0,24);
   renderBoard();
 }
@@ -654,7 +654,7 @@ function addLabItemRandom(){
   renderLabBoard();
 }
 function addLabBoardCustom(text){
-  labItems.unshift({time:nowTime(),who:'GOLDEN EYE // R&D',text});
+  labItems.unshift({time:nowTime(),who:'MASASHI PROTOCOL // R&D',text});
   labItems=labItems.slice(0,16);
   renderLabBoard();
 }
@@ -878,7 +878,7 @@ requestAnimationFrame(animate);
 'use strict';
 const translations={
 'CLIENTS':'顧客','SPECIALIZED UNITS':'専門エージェント','LIVE PIPELINES':'稼働中のパイプライン','DATA PACKETS':'データパケット','JOBS PROCESSED':'処理済みタスク','SYSTEM HEALTH':'システム健全性',
-'GOLDEN EYE CORE':'ゴールデンアイ中枢','PRIMARY ORCHESTRATOR':'統合制御中枢','ORCHESTRATOR':'統合制御','SYSTEM ONLINE':'システム稼働中','LIVE SYSTEM INTELLIGENCE':'リアルタイム知能分析',
+'MASASHI PROTOCOL CORE':'マサシ・プロトコル中枢','PRIMARY ORCHESTRATOR':'統合制御中枢','ORCHESTRATOR':'統合制御','SYSTEM ONLINE':'システム稼働中','LIVE SYSTEM INTELLIGENCE':'リアルタイム知能分析',
 'CLIENT ENVIRONMENTS':'クライアント環境','PIPELINE UTILIZATION':'パイプライン稼働率','TACTICAL SNAPSHOT':'戦術データ概要','OPERATION NOTES':'運用情報','AGENT-FORGE / SELF-IMPROVEMENT FEED':'エージェント生成・自己進化通信','AI MESSAGE BOARD':'AIエージェント通信盤','LIVE EVENT STREAM':'リアルタイム実行ログ','VOICE / COMMAND CONSOLE':'音声指令コンソール',
 'PAUSE':'一時停止','RESUME':'再開','EXPAND':'表示拡張','FULLSCREEN':'全画面表示','FIT':'全体表示','VOICE':'音声起動','ZOOM':'拡大','SPEED':'速度','SLOWER':'減速','FASTER':'加速',
 'MARKET INGESTION':'市場データ収集','RISK / NEWS ANALYSIS':'リスク・ニュース分析','CAMPAIGN ORCHESTRATION':'キャンペーン統合制御','LOGISTICS RESPONSE':'物流対応','THROUGHPUT':'処理効率','CONTEXT CONFIDENCE':'分析確信度','SUCCESS RATE':'成功率','JOBS QUEUED':'待機中のジョブ',
@@ -891,7 +891,7 @@ const translations={
 'EXECUTING':'処理実行中','WORKFLOW PAUSED':'ワークフロー停止中','AUTONOMOUS EXECUTION ACTIVE':'自律実行システム稼働中','AWAITING COMMAND':'指令待機中','PRESS ORB TO INITIALIZE VOICE':'音声起動ボタンを押してください',
 'INTELLIGENCE SWARM LOAD':'知能群の処理負荷','EXECUTION DENSITY':'実行処理密度','RISK MITIGATION CHANNELS':'リスク軽減回線','SHIPPING WATCH':'輸送監視','APPROVAL STATE':'承認状況','AGENT COLLABORATION':'エージェント間連携','MEDIA PRESSURE':'メディア影響監視',
 'ROUTED LINKS':'接続された経路','SCENARIO COMBOS':'シナリオ組合せ','AVG LATENCY':'平均遅延','MITIGATIONS':'対応策','SELECTED UNIT':'選択中のユニット',
-'GLOBAL ORCHESTRATION':'全域統合制御','GOLDEN EYE':'ゴールデンアイ','CYBERPUNK AUTONOMY LAYER':'サイバーパンク自律制御層',
+'GLOBAL ORCHESTRATION':'全域統合制御','MASASHI PROTOCOL':'マサシ・プロトコル','CYBERPUNK AUTONOMY LAYER':'サイバーパンク自律制御層',
 'OPERATIONS':'運用','SIMULATION MODE':'シミュレーションモード','SYSTEM TIME':'システム時刻',
 'IRAN':'イラン','GULF CORRIDOR':'湾岸航路','ALERT':'警報','UPDATE':'更新','COORDINATION':'連携','RESPONSE':'対応','ESCALATION':'緊急対応','WATCH':'監視',
 'GEOINT':'地理空間情報','OSINT':'公開情報分析','DEVSECOPS':'開発・セキュリティ運用','REVOPS':'収益運用','RAG':'検索拡張生成','A2A':'エージェント間通信','MCP':'モデル連携規格'
