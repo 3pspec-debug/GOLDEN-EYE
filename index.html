@@ -851,5 +851,111 @@ for(let i=0;i<9;i++) addLabItemRandom();
 requestAnimationFrame(animate);
 })();
 </script>
+
+<style id="jp-dual-styles">
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+.jp-pair{display:inline-flex;flex-direction:column;align-items:inherit;vertical-align:middle;line-height:1.15;gap:3px;max-width:100%}
+.jp-primary{display:block;color:#e9fbff;font-family:'Noto Sans JP',sans-serif;font-size:.91em;letter-spacing:.065em;font-weight:600;white-space:normal}
+.jp-en{display:block;color:#6eacc6;font-family:'Share Tech Mono',monospace;font-size:.70em;letter-spacing:.07em;line-height:1.35;white-space:normal}
+.jp-pair.jp-text{display:inline-flex;vertical-align:baseline}
+.node h3 .jp-pair,.panel-title .jp-pair,.brand small .jp-pair,.metric span .jp-pair{display:flex}
+.node h3 .jp-primary{font-size:15px}.node h3 .jp-en{font-size:10px}
+.metric span .jp-primary,.panel-title .jp-primary{font-size:10px}.metric span .jp-en,.panel-title .jp-en{font-size:8px}
+.control .jp-primary{font-size:11px}.control .jp-en{font-size:9px}
+.event .jp-pair,.board-item .jp-pair,.lab-item .jp-pair{display:inline-flex;vertical-align:top;align-items:flex-start;max-width:100%}
+.event .jp-primary,.board-item .jp-primary,.lab-item .jp-primary{font-size:11px;line-height:1.5;color:#ddfaff}
+.event .jp-en,.board-item .jp-en,.lab-item .jp-en{font-size:9px;line-height:1.5;color:#78a9be}
+.zone-label .jp-primary,.eyebrow .jp-primary{font-size:11px}
+.zone-label .jp-en,.eyebrow .jp-en{font-size:8px}
+#app .brand{min-width:300px}
+#app .node{min-height:112px}
+#app .labpanel{height:242px}
+#app .lab-list{max-height:178px}
+#app .rightpanel .board-list,#app .rightpanel .event-list{max-height:230px}
+</style>
+<script id="jp-dual-script">
+(()=>{
+'use strict';
+const translations={
+'CLIENTS':'顧客','SPECIALIZED UNITS':'専門エージェント','LIVE PIPELINES':'稼働中のパイプライン','DATA PACKETS':'データパケット','JOBS PROCESSED':'処理済みタスク','SYSTEM HEALTH':'システム健全性',
+'GOLDEN EYE CORE':'ゴールデンアイ中枢','PRIMARY ORCHESTRATOR':'統合制御中枢','ORCHESTRATOR':'統合制御','SYSTEM ONLINE':'システム稼働中','LIVE SYSTEM INTELLIGENCE':'リアルタイム知能分析',
+'CLIENT ENVIRONMENTS':'クライアント環境','PIPELINE UTILIZATION':'パイプライン稼働率','TACTICAL SNAPSHOT':'戦術データ概要','OPERATION NOTES':'運用情報','AGENT-FORGE / SELF-IMPROVEMENT FEED':'エージェント生成・自己進化通信','AI MESSAGE BOARD':'AIエージェント通信盤','LIVE EVENT STREAM':'リアルタイム実行ログ','VOICE / COMMAND CONSOLE':'音声指令コンソール',
+'PAUSE':'一時停止','RESUME':'再開','EXPAND':'表示拡張','FULLSCREEN':'全画面表示','FIT':'全体表示','VOICE':'音声起動','ZOOM':'拡大','SPEED':'速度','SLOWER':'減速','FASTER':'加速',
+'MARKET INGESTION':'市場データ収集','RISK / NEWS ANALYSIS':'リスク・ニュース分析','CAMPAIGN ORCHESTRATION':'キャンペーン統合制御','LOGISTICS RESPONSE':'物流対応','THROUGHPUT':'処理効率','CONTEXT CONFIDENCE':'分析確信度','SUCCESS RATE':'成功率','JOBS QUEUED':'待機中のジョブ',
+'Website Signals':'ウェブ動向検知','CRM Sync':'顧客管理同期','Social & Ads':'SNS・広告分析','Revenue & Billing':'売上・請求管理','Support Signals':'顧客サポート監視','Supply Chain Feeds':'供給網データ',
+'Data Normalizer':'データ正規化','Audience Intelligence':'顧客層インテリジェンス','Forecasting Agent':'予測分析エージェント','Risk Intelligence':'リスク情報分析','Logistics Analyzer':'物流分析エージェント','Strategy Planner':'戦略設計エージェント',
+'Content Engine':'コンテンツ生成','Campaign Manager':'施策管理エージェント','Lead Qualification':'見込み客評価','Sales Outreach':'営業アプローチ','Shipping Response':'配送対応エージェント','Exec Dashboard AI':'経営分析AI',
+'Brand Sentiment':'ブランド評価分析','Revenue Expansion':'収益拡大分析','Customer Retention':'顧客維持分析','Ops Resilience':'事業継続性分析','Board Reporting':'経営会議報告',
+'NEXUS COMMERCE':'ネクサス・コマース','ATLAS CAPITAL':'アトラス・キャピタル','ORBIT HEALTH':'オービット・ヘルス','VANTAGE MEDIA':'ヴァンテージ・メディア','POLARIS GLOBAL':'ポラリス・グローバル',
+'INGEST':'収集','ANALYZE':'解析','PLAN':'戦略','EXECUTE':'実行','OUTCOME':'成果','ACTIVE':'稼働中','READY':'準備完了','WATCHING':'監視中','SYNCED':'同期完了','ROUTED':'転送完了','LIVE':'通信中',
+'EXECUTING':'処理実行中','WORKFLOW PAUSED':'ワークフロー停止中','AUTONOMOUS EXECUTION ACTIVE':'自律実行システム稼働中','AWAITING COMMAND':'指令待機中','PRESS ORB TO INITIALIZE VOICE':'音声起動ボタンを押してください',
+'INTELLIGENCE SWARM LOAD':'知能群の処理負荷','EXECUTION DENSITY':'実行処理密度','RISK MITIGATION CHANNELS':'リスク軽減回線','SHIPPING WATCH':'輸送監視','APPROVAL STATE':'承認状況','AGENT COLLABORATION':'エージェント間連携','MEDIA PRESSURE':'メディア影響監視',
+'ROUTED LINKS':'接続された経路','SCENARIO COMBOS':'シナリオ組合せ','AVG LATENCY':'平均遅延','MITIGATIONS':'対応策','SELECTED UNIT':'選択中のユニット',
+'GLOBAL ORCHESTRATION':'全域統合制御','GOLDEN EYE':'ゴールデンアイ','CYBERPUNK AUTONOMY LAYER':'サイバーパンク自律制御層',
+'OPERATIONS':'運用','SIMULATION MODE':'シミュレーションモード','SYSTEM TIME':'システム時刻',
+'IRAN':'イラン','GULF CORRIDOR':'湾岸航路','ALERT':'警報','UPDATE':'更新','COORDINATION':'連携','RESPONSE':'対応','ESCALATION':'緊急対応','WATCH':'監視',
+'GEOINT':'地理空間情報','OSINT':'公開情報分析','DEVSECOPS':'開発・セキュリティ運用','REVOPS':'収益運用','RAG':'検索拡張生成','A2A':'エージェント間通信','MCP':'モデル連携規格'
+};
+const descriptionTranslations={
+'Allocates work across specialized units, merges business context, prioritizes action, and routes approvals for high-complexity operations.':'専門エージェントへ業務を割り当て、経営情報を統合し、優先順位と承認手続きを制御します。',
+'Global orchestration engaged with dense cross-agent communication.':'多数のエージェント間通信を利用した全域統合制御を実行中。',
+'All active flows paused for operator review.':'管理者による確認のため、全処理を一時停止しました。',
+'Autonomous execution resumed across all active agent clusters.':'全エージェント群の自律処理を再開しました。',
+'News from Iran will impact client shipping. We have a solution and are working on it.':'イラン関連ニュースが顧客の輸送に影響する見通しです。対策を確保し、現在対応中です。',
+'Session events, form submissions, attribution, and behavioral signals.':'閲覧履歴、問い合わせ、流入経路および行動信号を取得します。'
+};
+function japanese(en){
+ const raw=en.trim(); if(!raw)return null;
+ const cleaned=raw.replace(/^[◈◆∆●›\s+Ⅱ▶◉−]+/g,'').trim();
+ if(translations[cleaned])return translations[cleaned];
+ if(descriptionTranslations[cleaned])return descriptionTranslations[cleaned];
+ const key=cleaned.replace(/\s*\/\/\s*/g,' // ');
+ if(translations[key])return translations[key];
+ if(/^\d[\d,.%\s×ms-]*$/.test(cleaned)||!/[a-zA-Z]/.test(cleaned))return null;
+ if(/^(?:\d{1,2}:){2}\d{2}/.test(cleaned))return null;
+ if(/^(?:https?:|www\.|[A-Z]{2,8}\s*\/\s*[A-Z]{2,8})/.test(cleaned))return null;
+ if(/SIGNALS|DATA|LATENCY|TASKS|STATUS/.test(cleaned)&&cleaned.length<45)return '状態監視・信号分析';
+ if(/SCROLL TO ZOOM|DRAG TO PAN/.test(cleaned))return 'スクロールで拡大・ドラッグで移動・エージェントを選択';
+ if(/News from Iran|Iran|IRN|freight|shipping|logistics|carrier|Gulf|Suez|supply-route|port/i.test(cleaned))return '国際情勢と物流リスクを解析中。代替ルートと対応策を調整しています。';
+ if(/created a child|spawn|fork|model|toolchain|SDK|API|kernel|agent|vector mesh|RAG|MCP|MLOPS/i.test(cleaned)&&/A2A|AAM|ASM|RAG|MCP|MLOPS|spawn|fork|child|toolchain|SDK|API|kernel/i.test(cleaned))return '自律エージェントが新たな補助エージェントとツールを生成・検証中。';
+ if(/campaign|advert|audience|media|creative|lead|prospect|conversion|spend/i.test(cleaned))return 'マーケティング情報を解析し、施策と見込み客への対応を最適化しています。';
+ if(/risk|anomal|contingency|threat|impact|mitigat|sentiment|region|forecast/i.test(cleaned))return '外部リスクを検知し、影響を予測して対策を調整しています。';
+ if(/synchron|routing|approval|policy|guardrail|deploy|execution|job|workflow|operations/i.test(cleaned))return 'エージェント間通信と業務処理を実行し、承認・運用状況を更新しています。';
+ if(/NEXUS|ATLAS|ORBIT|VANTAGE|POLARIS/.test(cleaned))return 'クライアント運用情報';
+ if(/^[A-Z][A-Z /&·0-9:_.-]{5,}$/.test(cleaned))return '高度情報処理・監視中';
+ if(cleaned.length>24)return '複数の専門ユニットが情報を解析し、次の処理を調整しています。';
+ return null;
+}
+function translateNode(node){
+ if(node.parentNode?.closest?.('.jp-pair,script,style,textarea,input,[contenteditable]'))return;
+ const raw=node.textContent; if(!raw||!/[A-Za-z]/.test(raw))return;
+ if(!raw.trim()||raw.trim().length>420)return;
+ const parent=node.parentElement;if(!parent)return;
+ if(parent.closest('.brand strong,.core b'))return;
+ const ja=japanese(raw);if(!ja)return;
+ const wrapper=document.createElement('span');wrapper.className='jp-pair';wrapper.setAttribute('lang','ja');
+ const a=document.createElement('span');a.className='jp-primary';a.textContent=ja;
+ const b=document.createElement('span');b.className='jp-en';b.lang='en';b.textContent=raw.trim();
+ wrapper.append(a,b);node.replaceWith(wrapper);
+}
+function update(root){
+ if(!root || root.nodeType!==1 || root.closest?.('.jp-pair'))return;
+ if(root.matches('script,style,input,textarea,svg'))return;
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];let n;
+ while(n=walker.nextNode()){if(n.parentElement?.closest?.('.jp-pair,script,style,textarea,svg'))continue;nodes.push(n);}
+ nodes.forEach(translateNode);
+}
+let busy=false;
+const observer=new MutationObserver(changes=>{if(busy)return;busy=true;observer.disconnect();
+ const set=new Set();for(const change of changes){
+ if(change.type==='characterData')set.add(change.target.parentElement);
+ else for(const n of change.addedNodes)if(n.nodeType===1)set.add(n);
+ }
+ for(const n of set)update(n);observer.observe(document.getElementById('app'),{childList:true,subtree:true,characterData:true});busy=false;});
+ update(document.getElementById('app'));
+ observer.observe(document.getElementById('app'),{childList:true,subtree:true,characterData:true});
+ document.documentElement.lang='ja';
+})();
+</script>
 </body>
 </html>
